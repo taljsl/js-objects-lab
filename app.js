@@ -59,19 +59,19 @@ Exercise 5
 
 Solve Exercise 5 here:
 */
-count1 = 0
-count2 = 0
-count3 = 0
+count1 = 0;
+count2 = 0;
+count3 = 0;
 for (let i = 0; i < pokemon.length; i++) {
   if (
     pokemon[i].starter === false &&
     pokemon[i].type === "fire" &&
     pokemon[i].number > 9 &&
     pokemon[i].hp < 50 &&
-    count1 <1
+    count1 < 1
   ) {
     game.party.push(pokemon[i]);
-    count1++
+    count1++;
   }
 }
 
@@ -84,7 +84,7 @@ for (let i = 0; i < pokemon.length; i++) {
     count2 < 1
   ) {
     game.party.push(pokemon[i]);
-    count2++
+    count2++;
   }
 }
 
@@ -97,12 +97,10 @@ for (let i = 0; i < pokemon.length; i++) {
     count3 < 1
   ) {
     game.party.push(pokemon[i]);
-    count3++
+    count3++;
   }
 }
 // console.log(game.party);
-
-
 
 /*
 Exercise 6
@@ -116,7 +114,7 @@ Solve Exercise 6 here:
 
 for (let i = 0; i < game.gyms.length; i++) {
   if (game.gyms[i].difficulty < 3) {
-    game.gyms[i].completed = true
+    game.gyms[i].completed = true;
   }
 }
 /*
@@ -136,7 +134,7 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 7 here:
 */
 
-game.party.splice(0,1, pokemon[7]) // go into game then party, remove the element at index zero and replace with 1 item at index 7 of pokemon
+game.party.splice(0, 1, pokemon[7]); // go into game then party, remove the element at index zero and replace with 1 item at index 7 of pokemon
 
 /*
 Exercise 8
@@ -147,7 +145,7 @@ Solve Exercise 8 here:
 */
 
 for (let i = 0; i < game.party.length; i++) {
-  console.log(game.party[i].name)
+  console.log(game.party[i].name);
 }
 
 /*
@@ -159,9 +157,61 @@ Exercise 9
 Solve Exercise 9 here:
 */
 
-
 for (let i = 0; i < pokemon.length; i++) {
-  if(pokemon[i].starter === true) {
-    console.log(pokemon[i])
+  if (pokemon[i].starter === true) {
+    console.log(pokemon[i]);
+  }
+}
+
+/*
+Exercise 10
+Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
+  - Accept an object as a parameter called `pokemonObj`
+  - Add the `pokemonObj` to the `game.party` array.
+  - not return anything
+
+After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+
+Solve Exercise 10 here:
+*/
+
+game.catchPokemon = (pokemonObj) => game.party.push(pokemonObj);
+
+game.catchPokemon(pokemon[150]);
+
+/*
+Exercise 11
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 11 here:
+*/
+
+game.catchPokemon = (pokemonObj) => {
+  game.party.push(pokemonObj);
+  game.items[1].quantity = game.items[1].quantity - 1;
+};
+game.catchPokemon(pokemon[58]);
+
+console.log(game.items);
+
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+
+
+for (let i = 0; i < game.gyms.length; i++) {
+  if (game.gyms[i].difficulty < 6) {
+    game.gyms[i].completed = true;
   }
 }
