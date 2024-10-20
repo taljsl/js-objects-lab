@@ -100,6 +100,8 @@ for (let i = 0; i < pokemon.length; i++) {
     count3++;
   }
 }
+
+
 // console.log(game.party);
 
 /*
@@ -200,7 +202,6 @@ game.catchPokemon(pokemon[58]);
 
 console.log(game.items);
 
-
 /*
 Exercise 12
 1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
@@ -208,7 +209,6 @@ Exercise 12
 
 Solve Exercise 12 here:
 */
-
 
 for (let i = 0; i < game.gyms.length; i++) {
   if (game.gyms[i].difficulty < 6) {
@@ -242,18 +242,17 @@ game.gymStatus = () => {
   const gymtally = {
     completed: 0,
     incomplete: 0,
-  }
+  };
   for (let i = 0; i < game.gyms.length; i++) {
     if (game.gyms[i].completed === true) {
-      gymtally.completed = gymtally.completed + 1
+      gymtally.completed = gymtally.completed + 1;
     }
-    if (game.gyms[i].completed === false) [
-      gymtally.incomplete = gymtally.incomplete +1
-    ]
+    if (game.gyms[i].completed === false)
+      [(gymtally.incomplete = gymtally.incomplete + 1)];
   }
-  console.log (gymtally)
-  }
-  
+  console.log(gymtally);
+};
+
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
@@ -266,12 +265,12 @@ This method should:
 Solve Exercise 14 here:
 */
 game.partyCount = () => {
-  count = 0
-  for(let i = 0; i < game.party.length; i++){
-    count = count + 1
+  count = 0;
+  for (let i = 0; i < game.party.length; i++) {
+    count = count + 1;
   }
-  return count
-}
+  return count;
+};
 
 /*
 Exercise 15
@@ -287,3 +286,12 @@ for (let i = 0; i < game.gyms.length; i++) {
   }
 }
 
+/*
+Exercise 16
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 16 here:
+*/
+
+console.log(game)
